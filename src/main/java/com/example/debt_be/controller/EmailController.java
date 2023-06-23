@@ -191,7 +191,7 @@ public class EmailController {
             @RequestParam(value = "attachment", required = false) MultipartFile attachment) {
 
         // Get all debts from the repository
-        List<Debt> debts = debtRepo.findAll();
+        List<Debt> debts = debtRepo.findAllByBalanceIsNot(0);
 
         // Iterate over each debt and send an email to the corresponding user
         for (Debt debt : debts) {

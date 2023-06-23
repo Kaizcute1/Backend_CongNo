@@ -13,4 +13,5 @@ import java.util.List;
 public interface DebtRepo extends JpaRepository<Debt, Integer> {
     @Query("SELECT d FROM Debt d WHERE d.user.id = :userId")
     List<Debt> findByUserId(@Param("userId") Integer userId);
+    List<Debt> findAllByBalanceIsNot(double balance);
 }

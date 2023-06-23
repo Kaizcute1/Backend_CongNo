@@ -84,6 +84,10 @@ public class DebtService {
         return responseDto;
     }
 
+    public List<Debt> getNotNull(){
+        return debtRepo.findAllByBalanceIsNot(0);
+    }
+
     public List<Debt> getAll(){
         return debtRepo.findAll();
     }

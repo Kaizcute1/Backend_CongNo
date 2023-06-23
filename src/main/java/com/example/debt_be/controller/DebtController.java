@@ -41,6 +41,11 @@ public class DebtController {
         return new ResponseEntity<List<Debt>>(debtService.getAll(),HttpStatus.OK);
     }
 
+    @GetMapping("/getNotNull")
+    public ResponseEntity<List<Debt>> getNotNull(){
+        return new ResponseEntity<List<Debt>>(debtService.getNotNull(),HttpStatus.OK);
+    }
+
     @PostMapping("/save-to-excel/{id}")
     public ResponseEntity<String> saveToExcelAndDeleteRow(@PathVariable("id") Integer id) {
         debtService.saveToExcelAndDeleteRow(id);
